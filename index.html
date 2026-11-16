@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Acervo · Inventario</title>
+<style>
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#F3EFE7;color:#1E1B16;font-family:Arial,sans-serif;text-align:center;padding:16px;box-sizing:border-box}
+  .marca{font-family:Georgia,serif;font-style:italic;font-size:22px;margin-bottom:10px}
+  .txt{color:#625A4E;font-size:15px;max-width:360px}
+  .giro{width:28px;height:28px;margin:16px auto 0;border:3px solid #E4DCCF;border-top-color:#9A4A24;border-radius:50%;animation:g 0.9s linear infinite}
+  @keyframes g{to{transform:rotate(360deg)}}
+  a{color:#9A4A24;font-weight:bold}
+</style>
+</head>
+<body>
+<div>
+  <div class="marca">Acervo</div>
+  <div class="txt" id="txt">Abriendo…</div>
+  <div class="giro" id="giro"></div>
+</div>
+<script>
+// Página intermedia: pide la ficha o la caja a la app web de la hoja (sin usar la sesión de Google,
+// por eso abre aunque el navegador tenga varias cuentas) y la muestra tal cual.
+var APP = 'https://script.google.com/macros/s/AKfycbyPIvY-HEOvuMO2wCouAHOOztBJiZ9hp69J2ElJyL1W5Mo3nliKsAn_Wmz77H4B2kdMQg/exec';
+var q = location.search;
+function fallo(msg) {
+  document.getElementById('giro').style.display = 'none';
+  document.getElementById('txt').innerHTML = msg;
+}
+if (!q || q.length < 2) {
+  fallo('Escanea el código QR de una caja o de un mueble para ver su información.');
+} else {
+  fetch(APP + q + '&formato=json', { credentials: 'omit' })
+    .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(function (d) {
+      if (!d || !d.html) throw new Error('sin contenido');
+      document.open(); document.write(d.html); document.close();
+    })
+    .catch(function () {
+      fallo('No se pudo cargar la información. Revisa la conexión y recarga la página.<br><br>' +
+            '<a href="' + APP + q + '">Abrir directamente</a>');
+    });
+}
+</script>
+</body>
+</html>
