@@ -80,6 +80,7 @@ img{max-width:100%}
 .pill{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
 .e0{background:var(--ok-f);color:var(--ok-t)}.e1{background:var(--mal-f);color:var(--mal-t)}
 .e2{background:var(--rep-f);color:var(--rep-t)}.e3{background:var(--enrep-f);color:var(--enrep-t)}
+.e4{background:var(--fondo);color:var(--tinta);box-shadow:inset 0 0 0 1px var(--linea, rgba(0,0,0,.12))}
 .neutra{background:var(--fondo);color:var(--tinta)}
 .vacio{padding:28px 20px;text-align:center;color:var(--gris);background:#fff;border-radius:20px}
 
