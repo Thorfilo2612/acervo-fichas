@@ -1,5 +1,5 @@
 // Guarda la app para que abra al instante y sin conexión. Los datos siempre vienen del inventario.
-const VERSION = 'acervo-pruebas-v6';   // versión de PRUEBAS: sus cachés van aparte de la app principal
+const VERSION = 'acervo-pruebas-v7';   // versión de PRUEBAS: sus cachés van aparte de la app principal
 const ARCHIVOS = ['./', './index.html', './app.css', './app.js', './config.js', './manifest.webmanifest',
                   './icon-192.png', './icon-512.png', './apple-touch-icon.png', './favicon-32.png'];
 self.addEventListener('install', e => {
