@@ -423,3 +423,15 @@ img{max-width:100%}
 .cola-va{display:flex;align-items:center;gap:8px;color:var(--gris)}
 .cola-mal .boton{height:32px;padding:0 6px;font-size:12px}
 @media (min-width:960px){.rejilla-fotos{grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}}
+/* v18: Todo · Fuera de cajas · En cajas; buscador de cajas; cambiar nombre de caja */
+.segmento{display:flex;gap:4px;padding:4px;background:var(--campo);border-radius:999px;align-self:flex-start;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.segmento::-webkit-scrollbar{display:none}
+.segmento button{display:flex;align-items:center;gap:8px;height:40px;padding:0 16px;border:0;border-radius:999px;background:transparent;color:var(--tinta);font:inherit;font-weight:800;font-size:14px;white-space:nowrap;cursor:pointer}
+.segmento button[aria-pressed="true"]{background:var(--verde);color:#fff;box-shadow:var(--sombra)}
+.seg-n{font-size:12px;font-weight:800;opacity:.7}
+.seg-n:empty{display:none}
+.buscador-claro{margin-top:14px;background:#fff;box-shadow:var(--sombra)}
+.caja-items li.contiene{background:transparent;padding:2px 14px 0;color:var(--codigo);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.caja-items li.hallado{background:var(--rep-f, #FFF4D6)}
+.foto-tarjeta[hidden]{display:none}
+@media (max-width:420px){.segmento{align-self:stretch}.segmento button{flex:1;justify-content:center;padding:0 10px;font-size:13px}}
