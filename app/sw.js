@@ -1,5 +1,5 @@
 // Guarda la app para que abra al instante y sin conexión. Los datos siempre vienen del inventario.
-const VERSION = 'acervo-v10';
+const VERSION = 'acervo-v11';
 const ARCHIVOS = ['./', './index.html', './app.css', './app.js', './config.js', './manifest.webmanifest',
                   './icon-192.png', './icon-512.png', './apple-touch-icon.png', './favicon-32.png'];
 self.addEventListener('install', e => {
